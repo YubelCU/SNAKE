@@ -1,6 +1,8 @@
 var y=parseInt($("#head").css("bottom"));    // position x,y de la tête
 var x=parseInt($("#head").css("left"));
 var t= new Array(); //contient des setinterval pour le déplacement
+var screamer=true;
+var cri = document.querySelector("#audioPlayer");
 
 var direction=1;   // 1=bas, 2=gauche, 3=haut, 4=droite
 var longueur=0;  //nombre de blocs de serpents actifs après la tête
@@ -9,6 +11,7 @@ function RandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
+//$(document).ready(cri.pause());
 $(document).ready(init());
 $(document).ready(generateFruit());      // fait apparaître le fruit au début
 function init() {     // cache les blocs du serpent au début
@@ -99,6 +102,13 @@ for(j=0;j<longueur;j++) {
     $("body").append(d);
     // le Snake gagne un bloc, longueur est incrémentée
   }
+
+/* if (screamer&&(longueur==5)) {
+    $("#screamer").css("display","block");
+    cri.play();
+    screamer=false;
+    var timeoutID = setTimeout(function(){},1000);
+  }  */
 
 }
 
